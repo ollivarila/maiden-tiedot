@@ -12,22 +12,19 @@ const Filter = ({name, filterCh}) => {
 }
 
 const getWeather = async (country) => {
-  const token = process.env.REACT_APP_WEATHER
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${country.capital[0]}&appid=${token}&units=metric`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${country.capital[0]}&appid=${process.env.WEATHER}&units=metric`
   console.log(url)
-  return axios.get(url).then(res => res.data)
+  return axios.get(url).then(res => res.data).catch(err => null)
 }
 
 const OneCountry = ({ country }) => {
 
-  const [weather, setWeather] = useState({})
+  const [weather, setWeather] = useState(null)
 
   useEffect(() => {
     getWeather(country)
       .then((data) => setWeather(data))
   }, [])
-
-  console.log(weather)
 
   const languages = country.languages
   const lArr = Object.values(languages)
@@ -44,10 +41,15 @@ const OneCountry = ({ country }) => {
       </ul>
       <img src={country.flags.png} alt="flag" height='150px' width='150px'/>
       <div>
-        <h2>Weather in {country.capital[0]}</h2>
-        <p>Temperature {weather.main.temp} Celcius</p>
-        <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="weather" />
-        <p>Wind {weather.wind.speed} m/s</p>
+        { !weather 
+          ? <p>No weather info (api key missing?)</p>
+          : <>
+            <h2>Weather in {country.capital[0]}</h2>
+            <p>Temperature {weather.main.temp} Celcius</p>
+            <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="weather" />
+            <p>Wind {weather.wind.speed} m/s</p>
+          </>
+        }
       </div>
     </div>
   </> 
