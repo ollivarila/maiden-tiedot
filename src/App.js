@@ -12,7 +12,8 @@ const Filter = ({name, filterCh}) => {
 }
 
 const getWeather = async (country) => {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${country.capital[0]}&appid=${process.env.WEATHER_TOKEN}&units=metric`
+  const token = process.env.REACT_APP_WEATHER
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${country.capital[0]}&appid=${token}&units=metric`
   console.log(url)
   return axios.get(url).then(res => res.data)
 }
