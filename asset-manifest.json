@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/maiden-tiedot/static/css/main.231c4c61.css",
-    "main.js": "/maiden-tiedot/static/js/main.6bcb6c26.js",
+    "main.js": "/maiden-tiedot/static/js/main.bf6ffe50.js",
     "index.html": "/maiden-tiedot/index.html",
     "main.231c4c61.css.map": "/maiden-tiedot/static/css/main.231c4c61.css.map",
-    "main.6bcb6c26.js.map": "/maiden-tiedot/static/js/main.6bcb6c26.js.map"
+    "main.bf6ffe50.js.map": "/maiden-tiedot/static/js/main.bf6ffe50.js.map"
   },
   "entrypoints": [
     "static/css/main.231c4c61.css",
-    "static/js/main.6bcb6c26.js"
+    "static/js/main.bf6ffe50.js"
   ]
 }
